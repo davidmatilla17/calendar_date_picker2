@@ -22,6 +22,7 @@ class CalendarDatePicker2Config {
     DateTime? lastDate,
     DateTime? currentDate,
     DatePickerMode? calendarViewMode,
+    this.dialogInitMonth,
     this.weekdayLabels,
     this.weekdayLabelTextStyle,
     this.firstDayOfWeek,
@@ -61,6 +62,9 @@ class CalendarDatePicker2Config {
 
   /// The [DateTime] representing today. It will be highlighted in the day grid.
   final DateTime currentDate;
+
+  /// The [DateTime] representing dialog init month.
+  final DateTime? dialogInitMonth;
 
   /// The initially displayed view of the calendar picker.
   final DatePickerMode calendarViewMode;
@@ -137,6 +141,7 @@ class CalendarDatePicker2Config {
   final Widget? customModePickerButtonIcon;
 
   CalendarDatePicker2Config copyWith({
+    DateTime? dialogInitMonth,
     CalendarDatePicker2Type? calendarType,
     DateTime? firstDate,
     DateTime? lastDate,
@@ -166,6 +171,7 @@ class CalendarDatePicker2Config {
     Widget? customModePickerButtonIcon,
   }) {
     return CalendarDatePicker2Config(
+      dialogInitMonth: dialogInitMonth ?? this.dialogInitMonth,
       calendarType: calendarType ?? this.calendarType,
       firstDate: firstDate ?? this.firstDate,
       lastDate: lastDate ?? this.lastDate,
@@ -207,6 +213,7 @@ class CalendarDatePicker2Config {
 class CalendarDatePicker2WithActionButtonsConfig
     extends CalendarDatePicker2Config {
   CalendarDatePicker2WithActionButtonsConfig({
+    DateTime? dialogInitMonth,
     CalendarDatePicker2Type? calendarType,
     DateTime? firstDate,
     DateTime? lastDate,
@@ -244,6 +251,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     this.closeDialogOnOkTapped,
     this.buttonPadding,
   }) : super(
+          dialogInitMonth : dialogInitMonth,
           calendarType: calendarType,
           firstDate: firstDate,
           lastDate: lastDate,
@@ -302,6 +310,7 @@ class CalendarDatePicker2WithActionButtonsConfig
 
   @override
   CalendarDatePicker2WithActionButtonsConfig copyWith({
+    DateTime? dialogInitMonth,
     CalendarDatePicker2Type? calendarType,
     DateTime? firstDate,
     DateTime? lastDate,
@@ -340,6 +349,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     EdgeInsets? buttonPadding,
   }) {
     return CalendarDatePicker2WithActionButtonsConfig(
+      dialogInitMonth: dialogInitMonth ?? this.dialogInitMonth,
       calendarType: calendarType ?? this.calendarType,
       firstDate: firstDate ?? this.firstDate,
       lastDate: lastDate ?? this.lastDate,

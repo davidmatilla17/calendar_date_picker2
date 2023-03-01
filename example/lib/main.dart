@@ -128,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
       decoration: TextDecoration.underline,
     );
     final config = CalendarDatePicker2WithActionButtonsConfig(
+       dialogInitMonth : DateTime(2023,12),
         dayTextStyle: dayTextStyle,
         calendarType: CalendarDatePicker2Type.range,
         selectedDayHighlightColor: Colors.purple[800],
@@ -231,6 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildDefaultSingleDatePickerWithValue() {
     final config = CalendarDatePicker2Config(
+      dialogInitMonth : DateTime(2023,12),
       selectedDayHighlightColor: Colors.amber[900],
       weekdayLabels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       weekdayLabelTextStyle: const TextStyle(
@@ -287,6 +289,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildDefaultMultiDatePickerWithValue() {
     final config = CalendarDatePicker2Config(
+      dialogInitMonth : DateTime(2023,12),
       calendarType: CalendarDatePicker2Type.multi,
       selectedDayHighlightColor: Colors.indigo,
     );
@@ -324,6 +327,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildDefaultRangeDatePickerWithValue() {
     final config = CalendarDatePicker2Config(
+      dialogInitMonth : DateTime(2023,12),
       calendarType: CalendarDatePicker2Type.range,
       selectedDayHighlightColor: Colors.teal[800],
       weekdayLabelTextStyle: const TextStyle(
@@ -368,6 +372,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildCalendarWithActionButtons() {
     final config = CalendarDatePicker2WithActionButtonsConfig(
+      dialogInitMonth : DateTime(2023,12),
       calendarType: CalendarDatePicker2Type.range,
       disableYearPicker: true,
     );
