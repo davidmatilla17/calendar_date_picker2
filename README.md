@@ -107,8 +107,9 @@ var results = await showCalendarDatePicker2Dialog(
 ### For CalendarDatePicker2Config:
 
 | Option                      | Type                           | Description                                                                         |
-| --------------------------- | ------------------------------ | ----------------------------------------------------------------------------------- |
+| --------------------------- |--------------------------------|-------------------------------------------------------------------------------------|
 | calendarType                | CalendarDatePicker2Type?       | Calendar picker type, has 3 values: single, multi, range                            |
+| dialogInitMonth             | DateTime?                      | DateTime to select first month of the dialog on init                                |
 | firstDate                   | DateTime?                      | The earliest allowable DateTime user can select                                     |
 | lastDate                    | DateTime?                      | The latest allowable DateTime user can select                                       |
 | currentDate                 | DateTime?                      | The DateTime representing today which will be outlined in calendar                  |
