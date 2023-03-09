@@ -230,7 +230,11 @@ class _CalendarDatePicker2State extends State<CalendarDatePicker2> {
         if (index != -1) {
           selectedDates.removeAt(index);
         } else {
-          selectedDates.add(value);
+          if(widget.config.maxDaySelected == null || selectedDates.length < (widget.config.maxDaySelected ?? 0)) {
+            selectedDates.add(value);
+          }else if(widget.config.onDayExceeded != null){
+            widget.config.onDayExceeded!();
+          }
         }
       } else if (widget.config.calendarType == CalendarDatePicker2Type.range) {
         if (selectedDates.isEmpty) {
@@ -244,7 +248,15 @@ class _CalendarDatePicker2State extends State<CalendarDatePicker2> {
           if (isRangeSet || isSelectedDayBeforeStartDate) {
             selectedDates = [value, null];
           } else {
-            selectedDates = [selectedDates[0], value];
+            final firstDate = selectedDates[0]!;
+            final lastDate = value;
+            final difference = lastDate.difference(firstDate);
+            final daysDifference = difference.inDays.abs();
+            if(widget.config.maxDaySelected == null || daysDifference < (widget.config.maxDaySelected ?? 0)) {
+              selectedDates = [selectedDates[0], value];
+            }else if(widget.config.onDayExceeded != null){
+              widget.config.onDayExceeded!();
+            }
           }
         }
       }

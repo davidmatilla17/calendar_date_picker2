@@ -45,6 +45,8 @@ class CalendarDatePicker2Config {
     this.disableYearPicker,
     this.centerAlignModePickerButton,
     this.customModePickerButtonIcon,
+    this.maxDaySelected,
+    this.onDayExceeded
   })  : calendarType = calendarType ?? CalendarDatePicker2Type.single,
         firstDate = firstDate ?? DateTime(1970),
         lastDate = lastDate ?? DateTime(DateTime.now().year + 50),
@@ -140,7 +142,15 @@ class CalendarDatePicker2Config {
   /// Custom icon for the mode picker button icon
   final Widget? customModePickerButtonIcon;
 
+  /// Block selection on rage and multi if the amount of days is bigger than this variable
+  final int? maxDaySelected;
+
+  /// When day range limit is exceeded this callback is invoked
+  final Function? onDayExceeded;
+
   CalendarDatePicker2Config copyWith({
+    int? maxDaySelected,
+    Function? onDayExceeded,
     DateTime? dialogInitMonth,
     CalendarDatePicker2Type? calendarType,
     DateTime? firstDate,
@@ -171,6 +181,8 @@ class CalendarDatePicker2Config {
     Widget? customModePickerButtonIcon,
   }) {
     return CalendarDatePicker2Config(
+      maxDaySelected: maxDaySelected ?? this.maxDaySelected,
+      onDayExceeded : onDayExceeded ?? this.onDayExceeded,
       dialogInitMonth: dialogInitMonth ?? this.dialogInitMonth,
       calendarType: calendarType ?? this.calendarType,
       firstDate: firstDate ?? this.firstDate,
@@ -213,6 +225,8 @@ class CalendarDatePicker2Config {
 class CalendarDatePicker2WithActionButtonsConfig
     extends CalendarDatePicker2Config {
   CalendarDatePicker2WithActionButtonsConfig({
+    int? maxDaySelected,
+    Function? onDayExceeded,
     DateTime? dialogInitMonth,
     CalendarDatePicker2Type? calendarType,
     DateTime? firstDate,
@@ -251,6 +265,8 @@ class CalendarDatePicker2WithActionButtonsConfig
     this.closeDialogOnOkTapped,
     this.buttonPadding,
   }) : super(
+          maxDaySelected: maxDaySelected,
+          onDayExceeded: onDayExceeded,
           dialogInitMonth : dialogInitMonth,
           calendarType: calendarType,
           firstDate: firstDate,
@@ -310,6 +326,8 @@ class CalendarDatePicker2WithActionButtonsConfig
 
   @override
   CalendarDatePicker2WithActionButtonsConfig copyWith({
+    int? maxDaySelected,
+    Function? onDayExceeded,
     DateTime? dialogInitMonth,
     CalendarDatePicker2Type? calendarType,
     DateTime? firstDate,
@@ -349,6 +367,8 @@ class CalendarDatePicker2WithActionButtonsConfig
     EdgeInsets? buttonPadding,
   }) {
     return CalendarDatePicker2WithActionButtonsConfig(
+      maxDaySelected: maxDaySelected ?? this.maxDaySelected,
+      onDayExceeded: onDayExceeded?? this.onDayExceeded,
       dialogInitMonth: dialogInitMonth ?? this.dialogInitMonth,
       calendarType: calendarType ?? this.calendarType,
       firstDate: firstDate ?? this.firstDate,

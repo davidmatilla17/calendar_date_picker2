@@ -289,6 +289,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildDefaultMultiDatePickerWithValue() {
     final config = CalendarDatePicker2Config(
+      maxDaySelected: 5,
+      onDayExceeded: () {
+        print("se pasó el limite");
+      },
       dialogInitMonth : DateTime(2023,12),
       calendarType: CalendarDatePicker2Type.multi,
       selectedDayHighlightColor: Colors.indigo,
@@ -327,6 +331,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildDefaultRangeDatePickerWithValue() {
     final config = CalendarDatePicker2Config(
+      maxDaySelected: 5,
+      onDayExceeded: () {
+        print("se pasó el limite");
+      },
       dialogInitMonth : DateTime(2023,12),
       calendarType: CalendarDatePicker2Type.range,
       selectedDayHighlightColor: Colors.teal[800],
