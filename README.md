@@ -32,8 +32,10 @@ Make sure to check out [examples](https://github.com/theideasaler/calendar_date_
 Add the following line to `pubspec.yaml`:
 
 ```yaml
-dependencies:
-  calendar_date_picker2: ^0.4.0
+calendar_date_picker2:
+  git:
+    url: https://github.com/davidmatilla17/calendar_date_picker2.git
+    ref: main
 ```
 
 ### Basic setup
